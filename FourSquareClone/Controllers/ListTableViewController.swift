@@ -28,17 +28,20 @@ class ListTableViewController: UITableViewController {
 //        self.venueTableView.translatesAutoresizingMaskIntoConstraints = false
 //        tableViewConstraints()
 //        loadVenues()
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
 
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         loadVenues()
     }
     
     private func loadVenues() {
-        ClientAPI.manager.getWeather(from: "", completionHandler: {self.location = $0}, errorHandler: {print($0)})
+//        CityNameHelper.manager.getLocationName(from: "newyork", completionHandler: { (geoPosition) in
+//            ClientAPI.manager.getWeather(from: geoPosition, completionHandler: {self.location = $0}, errorHandler: {print($0)})
+//        }, errorHandler: {print($0)})
     }
 
 //MARK:- UITableView delegate
